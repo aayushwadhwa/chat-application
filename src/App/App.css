@@ -1,0 +1,18 @@
+.border-right {
+    border-right:1px solid black;
+    height: 90vh
+}
+
+.width-100 {
+    width: 100%;
+}
+.width-50 {
+    width: 50%;
+}
+.font-sizing {
+    font-size: 14px !important;
+}
+.message-area {
+    height: 80vh;
+    overflow: auto
+}

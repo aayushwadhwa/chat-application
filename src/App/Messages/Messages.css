@@ -1,0 +1,8 @@
+/* .fixed-at-bottom { */
+    /* position: absolute; */
+    /* bottom: 25px; */
+/* } */
+.message-area {
+    height: 92vh;
+    overflow: auto
+}

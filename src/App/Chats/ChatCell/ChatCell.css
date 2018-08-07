@@ -1,0 +1,19 @@
+.online {
+    border: 10px solid green;
+    border-radius: 50%; 
+}
+.offline {
+    border: 10px solid red;
+    border-radius: 50%; 
+}
+.chat-cell {
+    height: 30px;
+    margin-top: 10px;
+    border-bottom: 1px solid beige;
+}
+.chat-cell-click {
+    cursor: pointer;
+}
+.chat-cell-click:hover {
+    background-color: aliceblue;
+}
