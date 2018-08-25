@@ -52,7 +52,7 @@ class App extends Component {
       );
     } else {
       return (
-        <SignLogModal updatedData={this.updatedData} />
+        <SignLogModal updatedData={this.updatedData} socket={this.socket}/>
       );
     }
   }

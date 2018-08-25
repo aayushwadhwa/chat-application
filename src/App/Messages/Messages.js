@@ -13,11 +13,14 @@ class Messages extends Component {
         this.state = {
             messages: [],
             username: this.props.username,
-            selectedUser: this.props.selectedUser
+            selectedUser: this.props.selectedUser,
+            receiverId: null
         }
         const self = this;
         this.props.socket.on('Refresh Message API', function(response) {
-            self.setState({messages: response.data.value});
+            if (response.from === self.props.selectedUser.username || response.from === self.state.username) {
+                self.setState({messages: response.data.value});
+            }
         })
     }
     getMessages(newProps) {
@@ -48,6 +51,7 @@ class Messages extends Component {
     componentDidMount() {
         this.getMessages(this.props);
     }
+
     render() {
         return (
             <Grid fluid={true}>
@@ -56,7 +60,8 @@ class Messages extends Component {
                 </Row>
                 <Row>
                     <div className="fixed-at-bottom width-100">
-                        <MessageTextBox username={this.props.username} selectedUser={this.props.selectedUser} socket={this.props.socket}/>
+                        <MessageTextBox username={this.props.username} selectedUser={this.props.selectedUser} socket={this.props.socket} 
+                        receiverId={this.state.receiverId}/>
                     </div>
                 </Row>
             </Grid>

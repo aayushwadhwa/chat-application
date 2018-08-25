@@ -13,8 +13,9 @@ class MessageTextBox extends Component {
         const self = this;
         this.send = this.sendMessage.bind(this);
         this.messageChanged = this.messageChanged.bind(this);
+        console.log(this.props.socket)
         this.props.socket.on('Refresh Message API', function(response) {
-            if (response.data.statue === 'SUCCESS') {
+            if (response.data.status === 'SUCCESS') {
                 self.setState({message: ''});
             }
         })
@@ -30,6 +31,7 @@ class MessageTextBox extends Component {
             'to': this.props.selectedUser.username,
             'message': this.state.message,
             'time': new Date(),
+            'receiverId': this.props.selectedUser.socket ? this.props.selectedUser.socket : undefined
         }
         if (request.from && request.to && request.message) {
             if (request.from.length && request.to.length && request.message.length) {

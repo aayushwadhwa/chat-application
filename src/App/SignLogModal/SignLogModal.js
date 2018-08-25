@@ -43,13 +43,15 @@ class SignLogModal extends Component {
                 email: this.state.email,
                 security: this.state.security,
                 online: false,
-                signup: this.state.signup
+                signup: this.state.signup,
+                socket: this.props.socket.id
             }
         } else {
             request = {
                 username: this.state.username,
                 password: this.state.password,
-                signup: this.state.signup
+                signup: this.state.signup,
+                socket: this.props.socket.id
             }
         }
         const self = this;
